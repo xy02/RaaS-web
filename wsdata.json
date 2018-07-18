@@ -1,0 +1,80 @@
+{
+  "nested": {
+    "raas": {
+      "nested": {
+        "WsOutput": {
+          "oneofs": {
+            "type": {
+              "oneof": [
+                "callService",
+                "callUnaryService"
+              ]
+            }
+          },
+          "fields": {
+            "callerId": {
+              "type": "uint64",
+              "id": 1
+            },
+            "callService": {
+              "type": "CallService",
+              "id": 2
+            },
+            "callUnaryService": {
+              "type": "CallUnaryService",
+              "id": 3
+            }
+          }
+        },
+        "CallService": {
+          "fields": {
+            "serviceName": {
+              "type": "string",
+              "id": 1
+            },
+            "bin": {
+              "type": "bytes",
+              "id": 2
+            }
+          }
+        },
+        "CallUnaryService": {
+          "fields": {
+            "serviceName": {
+              "type": "string",
+              "id": 1
+            },
+            "bin": {
+              "type": "bytes",
+              "id": 2
+            }
+          }
+        },
+        "WsInput": {
+          "oneofs": {
+            "type": {
+              "oneof": [
+                "bin",
+                "final"
+              ]
+            }
+          },
+          "fields": {
+            "callerId": {
+              "type": "uint64",
+              "id": 1
+            },
+            "bin": {
+              "type": "bytes",
+              "id": 2
+            },
+            "final": {
+              "type": "string",
+              "id": 3
+            }
+          }
+        }
+      }
+    }
+  }
+}

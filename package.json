@@ -1,0 +1,26 @@
+{
+  "name": "raas-web",
+  "version": "0.1.0",
+  "description": "web front-end library for RaaS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xy02/raas-web.git"
+  },
+  "author": "xy02",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xy02/raas-web/issues"
+  },
+  "homepage": "https://github.com/xy02/raas-web#readme",
+  "dependencies": {
+    "protobufjs": "^6.8.6",
+    "rxjs": "^6.2.2"
+  },
+  "devDependencies": {
+    "typescript": "^2.9.2"
+  }
+}
