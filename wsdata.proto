@@ -3,8 +3,8 @@ syntax = "proto3";
 package raas;
 
 
-message WsOutput {
-    uint64 caller_id = 1;
+message WsClientOutput {
+    string caller_id = 1;
     oneof type {
         CallService call_service = 2;
         CallUnaryService call_unary_service = 3;
@@ -22,8 +22,8 @@ message CallUnaryService{
     uint32 timeout = 3;
 }
 
-message WsInput {
-    uint64 caller_id = 1;
+message WsServerOutput {
+    string caller_id = 1;
     oneof type {
         bytes bin = 2;
         //""(empty string) means complete, "err message"(not empty) means error

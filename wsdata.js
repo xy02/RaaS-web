@@ -1,111 +1,113 @@
 /*eslint-disable block-scoped-var, no-redeclare, no-control-regex, no-prototype-builtins*/
-import * as $protobuf from "protobufjs/minimal";
+"use strict";
+
+var $protobuf = require("protobufjs/minimal");
 
 // Common aliases
-const $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
+var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
 
 // Exported root namespace
-const $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
+var $root = $protobuf.roots["default"] || ($protobuf.roots["default"] = {});
 
-export const raas = $root.raas = (() => {
+$root.raas = (function() {
 
     /**
      * Namespace raas.
      * @exports raas
      * @namespace
      */
-    const raas = {};
+    var raas = {};
 
-    raas.WsOutput = (function() {
+    raas.WsClientOutput = (function() {
 
         /**
-         * Properties of a WsOutput.
+         * Properties of a WsClientOutput.
          * @memberof raas
-         * @interface IWsOutput
-         * @property {number|Long|null} [callerId] WsOutput callerId
-         * @property {raas.ICallService|null} [callService] WsOutput callService
-         * @property {raas.ICallUnaryService|null} [callUnaryService] WsOutput callUnaryService
+         * @interface IWsClientOutput
+         * @property {string|null} [callerId] WsClientOutput callerId
+         * @property {raas.ICallService|null} [callService] WsClientOutput callService
+         * @property {raas.ICallUnaryService|null} [callUnaryService] WsClientOutput callUnaryService
          */
 
         /**
-         * Constructs a new WsOutput.
+         * Constructs a new WsClientOutput.
          * @memberof raas
-         * @classdesc Represents a WsOutput.
-         * @implements IWsOutput
+         * @classdesc Represents a WsClientOutput.
+         * @implements IWsClientOutput
          * @constructor
-         * @param {raas.IWsOutput=} [properties] Properties to set
+         * @param {raas.IWsClientOutput=} [properties] Properties to set
          */
-        function WsOutput(properties) {
+        function WsClientOutput(properties) {
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
 
         /**
-         * WsOutput callerId.
-         * @member {number|Long} callerId
-         * @memberof raas.WsOutput
+         * WsClientOutput callerId.
+         * @member {string} callerId
+         * @memberof raas.WsClientOutput
          * @instance
          */
-        WsOutput.prototype.callerId = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        WsClientOutput.prototype.callerId = "";
 
         /**
-         * WsOutput callService.
+         * WsClientOutput callService.
          * @member {raas.ICallService|null|undefined} callService
-         * @memberof raas.WsOutput
+         * @memberof raas.WsClientOutput
          * @instance
          */
-        WsOutput.prototype.callService = null;
+        WsClientOutput.prototype.callService = null;
 
         /**
-         * WsOutput callUnaryService.
+         * WsClientOutput callUnaryService.
          * @member {raas.ICallUnaryService|null|undefined} callUnaryService
-         * @memberof raas.WsOutput
+         * @memberof raas.WsClientOutput
          * @instance
          */
-        WsOutput.prototype.callUnaryService = null;
+        WsClientOutput.prototype.callUnaryService = null;
 
         // OneOf field names bound to virtual getters and setters
-        let $oneOfFields;
+        var $oneOfFields;
 
         /**
-         * WsOutput type.
+         * WsClientOutput type.
          * @member {"callService"|"callUnaryService"|undefined} type
-         * @memberof raas.WsOutput
+         * @memberof raas.WsClientOutput
          * @instance
          */
-        Object.defineProperty(WsOutput.prototype, "type", {
+        Object.defineProperty(WsClientOutput.prototype, "type", {
             get: $util.oneOfGetter($oneOfFields = ["callService", "callUnaryService"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         /**
-         * Creates a new WsOutput instance using the specified properties.
+         * Creates a new WsClientOutput instance using the specified properties.
          * @function create
-         * @memberof raas.WsOutput
+         * @memberof raas.WsClientOutput
          * @static
-         * @param {raas.IWsOutput=} [properties] Properties to set
-         * @returns {raas.WsOutput} WsOutput instance
+         * @param {raas.IWsClientOutput=} [properties] Properties to set
+         * @returns {raas.WsClientOutput} WsClientOutput instance
          */
-        WsOutput.create = function create(properties) {
-            return new WsOutput(properties);
+        WsClientOutput.create = function create(properties) {
+            return new WsClientOutput(properties);
         };
 
         /**
-         * Encodes the specified WsOutput message. Does not implicitly {@link raas.WsOutput.verify|verify} messages.
+         * Encodes the specified WsClientOutput message. Does not implicitly {@link raas.WsClientOutput.verify|verify} messages.
          * @function encode
-         * @memberof raas.WsOutput
+         * @memberof raas.WsClientOutput
          * @static
-         * @param {raas.IWsOutput} message WsOutput message or plain object to encode
+         * @param {raas.IWsClientOutput} message WsClientOutput message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        WsOutput.encode = function encode(message, writer) {
+        WsClientOutput.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.callerId != null && message.hasOwnProperty("callerId"))
-                writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.callerId);
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.callerId);
             if (message.callService != null && message.hasOwnProperty("callService"))
                 $root.raas.CallService.encode(message.callService, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             if (message.callUnaryService != null && message.hasOwnProperty("callUnaryService"))
@@ -114,38 +116,38 @@ export const raas = $root.raas = (() => {
         };
 
         /**
-         * Encodes the specified WsOutput message, length delimited. Does not implicitly {@link raas.WsOutput.verify|verify} messages.
+         * Encodes the specified WsClientOutput message, length delimited. Does not implicitly {@link raas.WsClientOutput.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof raas.WsOutput
+         * @memberof raas.WsClientOutput
          * @static
-         * @param {raas.IWsOutput} message WsOutput message or plain object to encode
+         * @param {raas.IWsClientOutput} message WsClientOutput message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        WsOutput.encodeDelimited = function encodeDelimited(message, writer) {
+        WsClientOutput.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a WsOutput message from the specified reader or buffer.
+         * Decodes a WsClientOutput message from the specified reader or buffer.
          * @function decode
-         * @memberof raas.WsOutput
+         * @memberof raas.WsClientOutput
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {raas.WsOutput} WsOutput
+         * @returns {raas.WsClientOutput} WsClientOutput
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        WsOutput.decode = function decode(reader, length) {
+        WsClientOutput.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.raas.WsOutput();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.raas.WsClientOutput();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.callerId = reader.uint64();
+                    message.callerId = reader.string();
                     break;
                 case 2:
                     message.callService = $root.raas.CallService.decode(reader, reader.uint32());
@@ -162,40 +164,40 @@ export const raas = $root.raas = (() => {
         };
 
         /**
-         * Decodes a WsOutput message from the specified reader or buffer, length delimited.
+         * Decodes a WsClientOutput message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof raas.WsOutput
+         * @memberof raas.WsClientOutput
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {raas.WsOutput} WsOutput
+         * @returns {raas.WsClientOutput} WsClientOutput
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        WsOutput.decodeDelimited = function decodeDelimited(reader) {
+        WsClientOutput.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a WsOutput message.
+         * Verifies a WsClientOutput message.
          * @function verify
-         * @memberof raas.WsOutput
+         * @memberof raas.WsClientOutput
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        WsOutput.verify = function verify(message) {
+        WsClientOutput.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            let properties = {};
+            var properties = {};
             if (message.callerId != null && message.hasOwnProperty("callerId"))
-                if (!$util.isInteger(message.callerId) && !(message.callerId && $util.isInteger(message.callerId.low) && $util.isInteger(message.callerId.high)))
-                    return "callerId: integer|Long expected";
+                if (!$util.isString(message.callerId))
+                    return "callerId: string expected";
             if (message.callService != null && message.hasOwnProperty("callService")) {
                 properties.type = 1;
                 {
-                    let error = $root.raas.CallService.verify(message.callService);
+                    var error = $root.raas.CallService.verify(message.callService);
                     if (error)
                         return "callService." + error;
                 }
@@ -205,7 +207,7 @@ export const raas = $root.raas = (() => {
                     return "type: multiple values";
                 properties.type = 1;
                 {
-                    let error = $root.raas.CallUnaryService.verify(message.callUnaryService);
+                    var error = $root.raas.CallUnaryService.verify(message.callUnaryService);
                     if (error)
                         return "callUnaryService." + error;
                 }
@@ -214,63 +216,49 @@ export const raas = $root.raas = (() => {
         };
 
         /**
-         * Creates a WsOutput message from a plain object. Also converts values to their respective internal types.
+         * Creates a WsClientOutput message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof raas.WsOutput
+         * @memberof raas.WsClientOutput
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {raas.WsOutput} WsOutput
+         * @returns {raas.WsClientOutput} WsClientOutput
          */
-        WsOutput.fromObject = function fromObject(object) {
-            if (object instanceof $root.raas.WsOutput)
+        WsClientOutput.fromObject = function fromObject(object) {
+            if (object instanceof $root.raas.WsClientOutput)
                 return object;
-            let message = new $root.raas.WsOutput();
+            var message = new $root.raas.WsClientOutput();
             if (object.callerId != null)
-                if ($util.Long)
-                    (message.callerId = $util.Long.fromValue(object.callerId)).unsigned = true;
-                else if (typeof object.callerId === "string")
-                    message.callerId = parseInt(object.callerId, 10);
-                else if (typeof object.callerId === "number")
-                    message.callerId = object.callerId;
-                else if (typeof object.callerId === "object")
-                    message.callerId = new $util.LongBits(object.callerId.low >>> 0, object.callerId.high >>> 0).toNumber(true);
+                message.callerId = String(object.callerId);
             if (object.callService != null) {
                 if (typeof object.callService !== "object")
-                    throw TypeError(".raas.WsOutput.callService: object expected");
+                    throw TypeError(".raas.WsClientOutput.callService: object expected");
                 message.callService = $root.raas.CallService.fromObject(object.callService);
             }
             if (object.callUnaryService != null) {
                 if (typeof object.callUnaryService !== "object")
-                    throw TypeError(".raas.WsOutput.callUnaryService: object expected");
+                    throw TypeError(".raas.WsClientOutput.callUnaryService: object expected");
                 message.callUnaryService = $root.raas.CallUnaryService.fromObject(object.callUnaryService);
             }
             return message;
         };
 
         /**
-         * Creates a plain object from a WsOutput message. Also converts values to other types if specified.
+         * Creates a plain object from a WsClientOutput message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof raas.WsOutput
+         * @memberof raas.WsClientOutput
          * @static
-         * @param {raas.WsOutput} message WsOutput
+         * @param {raas.WsClientOutput} message WsClientOutput
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        WsOutput.toObject = function toObject(message, options) {
+        WsClientOutput.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.defaults)
-                if ($util.Long) {
-                    let long = new $util.Long(0, 0, true);
-                    object.callerId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.callerId = options.longs === String ? "0" : 0;
+                object.callerId = "";
             if (message.callerId != null && message.hasOwnProperty("callerId"))
-                if (typeof message.callerId === "number")
-                    object.callerId = options.longs === String ? String(message.callerId) : message.callerId;
-                else
-                    object.callerId = options.longs === String ? $util.Long.prototype.toString.call(message.callerId) : options.longs === Number ? new $util.LongBits(message.callerId.low >>> 0, message.callerId.high >>> 0).toNumber(true) : message.callerId;
+                object.callerId = message.callerId;
             if (message.callService != null && message.hasOwnProperty("callService")) {
                 object.callService = $root.raas.CallService.toObject(message.callService, options);
                 if (options.oneofs)
@@ -285,17 +273,17 @@ export const raas = $root.raas = (() => {
         };
 
         /**
-         * Converts this WsOutput to JSON.
+         * Converts this WsClientOutput to JSON.
          * @function toJSON
-         * @memberof raas.WsOutput
+         * @memberof raas.WsClientOutput
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        WsOutput.prototype.toJSON = function toJSON() {
+        WsClientOutput.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return WsOutput;
+        return WsClientOutput;
     })();
 
     raas.CallService = (function() {
@@ -318,7 +306,7 @@ export const raas = $root.raas = (() => {
          */
         function CallService(properties) {
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -397,9 +385,9 @@ export const raas = $root.raas = (() => {
         CallService.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.raas.CallService();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.raas.CallService();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     message.serviceName = reader.string();
@@ -462,7 +450,7 @@ export const raas = $root.raas = (() => {
         CallService.fromObject = function fromObject(object) {
             if (object instanceof $root.raas.CallService)
                 return object;
-            let message = new $root.raas.CallService();
+            var message = new $root.raas.CallService();
             if (object.serviceName != null)
                 message.serviceName = String(object.serviceName);
             if (object.bin != null)
@@ -485,7 +473,7 @@ export const raas = $root.raas = (() => {
         CallService.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.defaults) {
                 object.serviceName = "";
                 object.bin = options.bytes === String ? "" : [];
@@ -519,6 +507,7 @@ export const raas = $root.raas = (() => {
          * @interface ICallUnaryService
          * @property {string|null} [serviceName] CallUnaryService serviceName
          * @property {Uint8Array|null} [bin] CallUnaryService bin
+         * @property {number|null} [timeout] CallUnaryService timeout
          */
 
         /**
@@ -531,7 +520,7 @@ export const raas = $root.raas = (() => {
          */
         function CallUnaryService(properties) {
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
@@ -551,6 +540,14 @@ export const raas = $root.raas = (() => {
          * @instance
          */
         CallUnaryService.prototype.bin = $util.newBuffer([]);
+
+        /**
+         * CallUnaryService timeout.
+         * @member {number} timeout
+         * @memberof raas.CallUnaryService
+         * @instance
+         */
+        CallUnaryService.prototype.timeout = 0;
 
         /**
          * Creates a new CallUnaryService instance using the specified properties.
@@ -580,6 +577,8 @@ export const raas = $root.raas = (() => {
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.serviceName);
             if (message.bin != null && message.hasOwnProperty("bin"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.bin);
+            if (message.timeout != null && message.hasOwnProperty("timeout"))
+                writer.uint32(/* id 3, wireType 0 =*/24).uint32(message.timeout);
             return writer;
         };
 
@@ -610,15 +609,18 @@ export const raas = $root.raas = (() => {
         CallUnaryService.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.raas.CallUnaryService();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.raas.CallUnaryService();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
                     message.serviceName = reader.string();
                     break;
                 case 2:
                     message.bin = reader.bytes();
+                    break;
+                case 3:
+                    message.timeout = reader.uint32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -661,6 +663,9 @@ export const raas = $root.raas = (() => {
             if (message.bin != null && message.hasOwnProperty("bin"))
                 if (!(message.bin && typeof message.bin.length === "number" || $util.isString(message.bin)))
                     return "bin: buffer expected";
+            if (message.timeout != null && message.hasOwnProperty("timeout"))
+                if (!$util.isInteger(message.timeout))
+                    return "timeout: integer expected";
             return null;
         };
 
@@ -675,7 +680,7 @@ export const raas = $root.raas = (() => {
         CallUnaryService.fromObject = function fromObject(object) {
             if (object instanceof $root.raas.CallUnaryService)
                 return object;
-            let message = new $root.raas.CallUnaryService();
+            var message = new $root.raas.CallUnaryService();
             if (object.serviceName != null)
                 message.serviceName = String(object.serviceName);
             if (object.bin != null)
@@ -683,6 +688,8 @@ export const raas = $root.raas = (() => {
                     $util.base64.decode(object.bin, message.bin = $util.newBuffer($util.base64.length(object.bin)), 0);
                 else if (object.bin.length)
                     message.bin = object.bin;
+            if (object.timeout != null)
+                message.timeout = object.timeout >>> 0;
             return message;
         };
 
@@ -698,15 +705,18 @@ export const raas = $root.raas = (() => {
         CallUnaryService.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.defaults) {
                 object.serviceName = "";
                 object.bin = options.bytes === String ? "" : [];
+                object.timeout = 0;
             }
             if (message.serviceName != null && message.hasOwnProperty("serviceName"))
                 object.serviceName = message.serviceName;
             if (message.bin != null && message.hasOwnProperty("bin"))
                 object.bin = options.bytes === String ? $util.base64.encode(message.bin, 0, message.bin.length) : options.bytes === Array ? Array.prototype.slice.call(message.bin) : message.bin;
+            if (message.timeout != null && message.hasOwnProperty("timeout"))
+                object.timeout = message.timeout;
             return object;
         };
 
@@ -724,96 +734,96 @@ export const raas = $root.raas = (() => {
         return CallUnaryService;
     })();
 
-    raas.WsInput = (function() {
+    raas.WsServerOutput = (function() {
 
         /**
-         * Properties of a WsInput.
+         * Properties of a WsServerOutput.
          * @memberof raas
-         * @interface IWsInput
-         * @property {number|Long|null} [callerId] WsInput callerId
-         * @property {Uint8Array|null} [bin] WsInput bin
-         * @property {string|null} [final] WsInput final
+         * @interface IWsServerOutput
+         * @property {string|null} [callerId] WsServerOutput callerId
+         * @property {Uint8Array|null} [bin] WsServerOutput bin
+         * @property {string|null} [final] WsServerOutput final
          */
 
         /**
-         * Constructs a new WsInput.
+         * Constructs a new WsServerOutput.
          * @memberof raas
-         * @classdesc Represents a WsInput.
-         * @implements IWsInput
+         * @classdesc Represents a WsServerOutput.
+         * @implements IWsServerOutput
          * @constructor
-         * @param {raas.IWsInput=} [properties] Properties to set
+         * @param {raas.IWsServerOutput=} [properties] Properties to set
          */
-        function WsInput(properties) {
+        function WsServerOutput(properties) {
             if (properties)
-                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
                         this[keys[i]] = properties[keys[i]];
         }
 
         /**
-         * WsInput callerId.
-         * @member {number|Long} callerId
-         * @memberof raas.WsInput
+         * WsServerOutput callerId.
+         * @member {string} callerId
+         * @memberof raas.WsServerOutput
          * @instance
          */
-        WsInput.prototype.callerId = $util.Long ? $util.Long.fromBits(0,0,true) : 0;
+        WsServerOutput.prototype.callerId = "";
 
         /**
-         * WsInput bin.
+         * WsServerOutput bin.
          * @member {Uint8Array} bin
-         * @memberof raas.WsInput
+         * @memberof raas.WsServerOutput
          * @instance
          */
-        WsInput.prototype.bin = $util.newBuffer([]);
+        WsServerOutput.prototype.bin = $util.newBuffer([]);
 
         /**
-         * WsInput final.
+         * WsServerOutput final.
          * @member {string} final
-         * @memberof raas.WsInput
+         * @memberof raas.WsServerOutput
          * @instance
          */
-        WsInput.prototype.final = "";
+        WsServerOutput.prototype.final = "";
 
         // OneOf field names bound to virtual getters and setters
-        let $oneOfFields;
+        var $oneOfFields;
 
         /**
-         * WsInput type.
+         * WsServerOutput type.
          * @member {"bin"|"final"|undefined} type
-         * @memberof raas.WsInput
+         * @memberof raas.WsServerOutput
          * @instance
          */
-        Object.defineProperty(WsInput.prototype, "type", {
+        Object.defineProperty(WsServerOutput.prototype, "type", {
             get: $util.oneOfGetter($oneOfFields = ["bin", "final"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
         /**
-         * Creates a new WsInput instance using the specified properties.
+         * Creates a new WsServerOutput instance using the specified properties.
          * @function create
-         * @memberof raas.WsInput
+         * @memberof raas.WsServerOutput
          * @static
-         * @param {raas.IWsInput=} [properties] Properties to set
-         * @returns {raas.WsInput} WsInput instance
+         * @param {raas.IWsServerOutput=} [properties] Properties to set
+         * @returns {raas.WsServerOutput} WsServerOutput instance
          */
-        WsInput.create = function create(properties) {
-            return new WsInput(properties);
+        WsServerOutput.create = function create(properties) {
+            return new WsServerOutput(properties);
         };
 
         /**
-         * Encodes the specified WsInput message. Does not implicitly {@link raas.WsInput.verify|verify} messages.
+         * Encodes the specified WsServerOutput message. Does not implicitly {@link raas.WsServerOutput.verify|verify} messages.
          * @function encode
-         * @memberof raas.WsInput
+         * @memberof raas.WsServerOutput
          * @static
-         * @param {raas.IWsInput} message WsInput message or plain object to encode
+         * @param {raas.IWsServerOutput} message WsServerOutput message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        WsInput.encode = function encode(message, writer) {
+        WsServerOutput.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
             if (message.callerId != null && message.hasOwnProperty("callerId"))
-                writer.uint32(/* id 1, wireType 0 =*/8).uint64(message.callerId);
+                writer.uint32(/* id 1, wireType 2 =*/10).string(message.callerId);
             if (message.bin != null && message.hasOwnProperty("bin"))
                 writer.uint32(/* id 2, wireType 2 =*/18).bytes(message.bin);
             if (message.final != null && message.hasOwnProperty("final"))
@@ -822,38 +832,38 @@ export const raas = $root.raas = (() => {
         };
 
         /**
-         * Encodes the specified WsInput message, length delimited. Does not implicitly {@link raas.WsInput.verify|verify} messages.
+         * Encodes the specified WsServerOutput message, length delimited. Does not implicitly {@link raas.WsServerOutput.verify|verify} messages.
          * @function encodeDelimited
-         * @memberof raas.WsInput
+         * @memberof raas.WsServerOutput
          * @static
-         * @param {raas.IWsInput} message WsInput message or plain object to encode
+         * @param {raas.IWsServerOutput} message WsServerOutput message or plain object to encode
          * @param {$protobuf.Writer} [writer] Writer to encode to
          * @returns {$protobuf.Writer} Writer
          */
-        WsInput.encodeDelimited = function encodeDelimited(message, writer) {
+        WsServerOutput.encodeDelimited = function encodeDelimited(message, writer) {
             return this.encode(message, writer).ldelim();
         };
 
         /**
-         * Decodes a WsInput message from the specified reader or buffer.
+         * Decodes a WsServerOutput message from the specified reader or buffer.
          * @function decode
-         * @memberof raas.WsInput
+         * @memberof raas.WsServerOutput
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
          * @param {number} [length] Message length if known beforehand
-         * @returns {raas.WsInput} WsInput
+         * @returns {raas.WsServerOutput} WsServerOutput
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        WsInput.decode = function decode(reader, length) {
+        WsServerOutput.decode = function decode(reader, length) {
             if (!(reader instanceof $Reader))
                 reader = $Reader.create(reader);
-            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.raas.WsInput();
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.raas.WsServerOutput();
             while (reader.pos < end) {
-                let tag = reader.uint32();
+                var tag = reader.uint32();
                 switch (tag >>> 3) {
                 case 1:
-                    message.callerId = reader.uint64();
+                    message.callerId = reader.string();
                     break;
                 case 2:
                     message.bin = reader.bytes();
@@ -870,36 +880,36 @@ export const raas = $root.raas = (() => {
         };
 
         /**
-         * Decodes a WsInput message from the specified reader or buffer, length delimited.
+         * Decodes a WsServerOutput message from the specified reader or buffer, length delimited.
          * @function decodeDelimited
-         * @memberof raas.WsInput
+         * @memberof raas.WsServerOutput
          * @static
          * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {raas.WsInput} WsInput
+         * @returns {raas.WsServerOutput} WsServerOutput
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        WsInput.decodeDelimited = function decodeDelimited(reader) {
+        WsServerOutput.decodeDelimited = function decodeDelimited(reader) {
             if (!(reader instanceof $Reader))
                 reader = new $Reader(reader);
             return this.decode(reader, reader.uint32());
         };
 
         /**
-         * Verifies a WsInput message.
+         * Verifies a WsServerOutput message.
          * @function verify
-         * @memberof raas.WsInput
+         * @memberof raas.WsServerOutput
          * @static
          * @param {Object.<string,*>} message Plain object to verify
          * @returns {string|null} `null` if valid, otherwise the reason why it is not
          */
-        WsInput.verify = function verify(message) {
+        WsServerOutput.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            let properties = {};
+            var properties = {};
             if (message.callerId != null && message.hasOwnProperty("callerId"))
-                if (!$util.isInteger(message.callerId) && !(message.callerId && $util.isInteger(message.callerId.low) && $util.isInteger(message.callerId.high)))
-                    return "callerId: integer|Long expected";
+                if (!$util.isString(message.callerId))
+                    return "callerId: string expected";
             if (message.bin != null && message.hasOwnProperty("bin")) {
                 properties.type = 1;
                 if (!(message.bin && typeof message.bin.length === "number" || $util.isString(message.bin)))
@@ -916,26 +926,19 @@ export const raas = $root.raas = (() => {
         };
 
         /**
-         * Creates a WsInput message from a plain object. Also converts values to their respective internal types.
+         * Creates a WsServerOutput message from a plain object. Also converts values to their respective internal types.
          * @function fromObject
-         * @memberof raas.WsInput
+         * @memberof raas.WsServerOutput
          * @static
          * @param {Object.<string,*>} object Plain object
-         * @returns {raas.WsInput} WsInput
+         * @returns {raas.WsServerOutput} WsServerOutput
          */
-        WsInput.fromObject = function fromObject(object) {
-            if (object instanceof $root.raas.WsInput)
+        WsServerOutput.fromObject = function fromObject(object) {
+            if (object instanceof $root.raas.WsServerOutput)
                 return object;
-            let message = new $root.raas.WsInput();
+            var message = new $root.raas.WsServerOutput();
             if (object.callerId != null)
-                if ($util.Long)
-                    (message.callerId = $util.Long.fromValue(object.callerId)).unsigned = true;
-                else if (typeof object.callerId === "string")
-                    message.callerId = parseInt(object.callerId, 10);
-                else if (typeof object.callerId === "number")
-                    message.callerId = object.callerId;
-                else if (typeof object.callerId === "object")
-                    message.callerId = new $util.LongBits(object.callerId.low >>> 0, object.callerId.high >>> 0).toNumber(true);
+                message.callerId = String(object.callerId);
             if (object.bin != null)
                 if (typeof object.bin === "string")
                     $util.base64.decode(object.bin, message.bin = $util.newBuffer($util.base64.length(object.bin)), 0);
@@ -947,29 +950,22 @@ export const raas = $root.raas = (() => {
         };
 
         /**
-         * Creates a plain object from a WsInput message. Also converts values to other types if specified.
+         * Creates a plain object from a WsServerOutput message. Also converts values to other types if specified.
          * @function toObject
-         * @memberof raas.WsInput
+         * @memberof raas.WsServerOutput
          * @static
-         * @param {raas.WsInput} message WsInput
+         * @param {raas.WsServerOutput} message WsServerOutput
          * @param {$protobuf.IConversionOptions} [options] Conversion options
          * @returns {Object.<string,*>} Plain object
          */
-        WsInput.toObject = function toObject(message, options) {
+        WsServerOutput.toObject = function toObject(message, options) {
             if (!options)
                 options = {};
-            let object = {};
+            var object = {};
             if (options.defaults)
-                if ($util.Long) {
-                    let long = new $util.Long(0, 0, true);
-                    object.callerId = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
-                } else
-                    object.callerId = options.longs === String ? "0" : 0;
+                object.callerId = "";
             if (message.callerId != null && message.hasOwnProperty("callerId"))
-                if (typeof message.callerId === "number")
-                    object.callerId = options.longs === String ? String(message.callerId) : message.callerId;
-                else
-                    object.callerId = options.longs === String ? $util.Long.prototype.toString.call(message.callerId) : options.longs === Number ? new $util.LongBits(message.callerId.low >>> 0, message.callerId.high >>> 0).toNumber(true) : message.callerId;
+                object.callerId = message.callerId;
             if (message.bin != null && message.hasOwnProperty("bin")) {
                 object.bin = options.bytes === String ? $util.base64.encode(message.bin, 0, message.bin.length) : options.bytes === Array ? Array.prototype.slice.call(message.bin) : message.bin;
                 if (options.oneofs)
@@ -984,20 +980,20 @@ export const raas = $root.raas = (() => {
         };
 
         /**
-         * Converts this WsInput to JSON.
+         * Converts this WsServerOutput to JSON.
          * @function toJSON
-         * @memberof raas.WsInput
+         * @memberof raas.WsServerOutput
          * @instance
          * @returns {Object.<string,*>} JSON object
          */
-        WsInput.prototype.toJSON = function toJSON() {
+        WsServerOutput.prototype.toJSON = function toJSON() {
             return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
         };
 
-        return WsInput;
+        return WsServerOutput;
     })();
 
     return raas;
 })();
 
-export { $root as default };
+module.exports = $root;
